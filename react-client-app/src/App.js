@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.scss';
 import { Example } from './components/Example';
 import { ClassExample } from './components/ClassExample';
+import { Game } from './game-components/Game';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
 
       <div>
         <ClassExample color="blau" />
+      </div>
+      <div>
+        <Game />
       </div>
     </div>
   );
