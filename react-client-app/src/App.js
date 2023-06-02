@@ -1,5 +1,7 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Example } from './components/Example';
+import { ClassExample } from './components/ClassExample';
 
 function App() {
   return (
@@ -18,6 +20,13 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        <Example color="gelb"/>
+      </div>
+
+      <div>
+        <ClassExample color="blau" />
+      </div>
     </div>
   );
 }
