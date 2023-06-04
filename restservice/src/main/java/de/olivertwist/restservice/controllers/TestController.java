@@ -12,5 +12,4 @@ public class TestController {
 	public String getAllGameDates() {
 		return "The Controller is working!!!";
 	}
-
 }
