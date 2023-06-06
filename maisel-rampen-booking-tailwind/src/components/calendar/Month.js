@@ -1,5 +1,5 @@
-import React from 'react'
-import Day from './Day'
+import React from 'react';
+import Day from './Day';
 
 export default function Month( {month} ) {
   return (
@@ -7,7 +7,7 @@ export default function Month( {month} ) {
         {month.map((row, i) => (
             <React.Fragment key={i}>
                 {row.map((day, j) => (
-                    <Day day={day} key={j} />
+                    <Day day={day} key={j} rowIndex={i} />
                 ))}
             </React.Fragment>
         ))}

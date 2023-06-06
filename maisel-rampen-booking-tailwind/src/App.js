@@ -11,10 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <div className='h-screen flex flex columns'>
+      <div className='h-screen flex flex columns my-10 mx-10'>
         <CalendarHeader />
 
         <div className='flex flex-1'>

@@ -14,3 +14,9 @@ export function getMonth(month = dayjs().month()) {
 
     return daysMatrix;
 }
+
+export function getCurrentDayClass(day) {
+    const isDayCurrent = day.format("DD-MM-YY") === dayjs.extend().format("DD-MM-YY");
+    console.log('get class test' + isDayCurrent);
+    return isDayCurrent ? 'bg-blue-600 text-white rounded-full w-7' : '';
+}
