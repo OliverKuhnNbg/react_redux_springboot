@@ -6,11 +6,11 @@ import { decrement, increment, incrementByAmount } from "./counterSlice";
 
 const Counter = () => {
     /** get init State from redux store via store selector */
-    const counter = useSelector((state) => state.counterReducer.value)
+    const counter = useSelector((state) => state.counterReducer.value);
     const dispatch = useDispatch();
 
     const mystyle = {
-        margin: "5px",
+        margin: "10px",
     };
 
     return (
