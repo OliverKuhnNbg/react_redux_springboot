@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
+import {getCurrentDayClass} from '../../util'
 
 export default function Day({day, rowIndex}) {
   console.log(rowIndex);
@@ -17,9 +18,3 @@ export default function Day({day, rowIndex}) {
   )
 }
 
-function getCurrentDayClass(day) {
-  let check = false;
-  let isDayCurrent = day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? true : false;
-  console.log('get class test' + isDayCurrent);
-  return isDayCurrent ? 'bg-blue-600 text-white rounded-full' : '';
-}

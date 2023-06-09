@@ -16,7 +16,8 @@ export function getMonth(month = dayjs().month()) {
 }
 
 export function getCurrentDayClass(day) {
-    const isDayCurrent = day.format("DD-MM-YY") === dayjs.extend().format("DD-MM-YY");
+    let check = false;
+    let isDayCurrent = day.format("DD-MM-YY") === dayjs().format("DD-MM-YY") ? true : false;
     console.log('get class test' + isDayCurrent);
-    return isDayCurrent ? 'bg-blue-600 text-white rounded-full w-7' : '';
+    return isDayCurrent ? 'bg-blue-600 text-white rounded-full' : '';
 }
