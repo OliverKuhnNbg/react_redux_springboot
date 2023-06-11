@@ -20,7 +20,7 @@ function App() {
         </a>
       </header>
       <div>
-        <Counter/>
+        <Counter />
       </div>
     </div>
   );
