@@ -1,14 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-//const initialState = {
-  //  count: 0
-//}
 const initialState = {
-  value: 0,
+    toDoList: []
 }
-  
-  export const counterSlice = createSlice({
-    name: 'counter',
+
+export const toDoListSlice = createSlice({
+    name: 'toDoList',
     initialState,
     reducers: {
       increment: (state) => {
@@ -24,11 +21,15 @@ const initialState = {
       incrementByAmount: (state, action) => {
         state.value += action.payload
       },
+      addEntry: (state, action) => {
+        console.log(action)
+        state.value = state.value
+      }
     },
   })
   
   // Action creators are generated for each case reducer function
-  export const { increment, decrement, incrementByAmount } = counterSlice.actions
+  export const { addEntry } = toDoListSlice.actions
   
   /** export full reducer */
-  export default counterSlice.reducer
+  export default toDoListSlice.reducer
