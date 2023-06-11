@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-
+import { ToDoListEntry } from './ToDoListEntry';
 import { addEntry } from './toDoListSlicer';
 
 //const counter = useSelector((state) => state.ToDoListReducer.toDoList);
@@ -25,7 +25,20 @@ function ToDoList() {
 
         const [title, setTitle] = useState(curTask.title);
         const [task, setTask] = useState(curTask.task);
-        
+
+        const mystyle = {
+            marginTop: "5px",
+            marginBottom: "0px",
+            textAlign: "center",
+        };
+
+        const listStyle = {
+            minWidth: "400px",
+            maxWidth: "600px",
+            textAlign: "left",
+            paddingLeft: '650px'
+        };
+
         return (
             <div>
                 <div>
@@ -34,8 +47,10 @@ function ToDoList() {
                 <div>
                     {toDoList.length}
                 </div>
-                <div>
-
+                <div style={mystyle}>
+                    <ul style={listStyle}>
+                        {toDoList.map((item) => <ToDoListEntry title={item.title} task={item.task} />)}
+                    </ul>
                 </div>
 
                 <div>
@@ -48,7 +63,6 @@ function ToDoList() {
                             name="title"
                             value={title}
                             onChange={(e) => {
-                                console.log(title)
                                 setTitle(e.target.value);
                             }}
                             placeholder="Title"
@@ -60,18 +74,18 @@ function ToDoList() {
                             name="task"
                             value={task}
                             onChange={(e) => {
-                                console.log(task)
                                 setTask(e.target.value);
                             }}
                             placeholder="Title"
                             required
                         /><br/><br/>
                         <button onClick={ (e) => {
-                            
                             dispatch(addEntry({title: title, task: task}));
-
-                            
-                        } }>By Amount</button>
+                            setTask("");
+                            setTitle("");
+                        } }>
+                            Sumbit Form
+                        </button>
                     </div> 
                 </div>
             </div>
