@@ -1,29 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    toDoList: []
+    toDoList: [],
+    task : {
+        title: '',
+        task: ''
+    }
 }
 
 export const toDoListSlice = createSlice({
     name: 'toDoList',
     initialState,
     reducers: {
-      increment: (state) => {
-        // Redux Toolkit allows us to write "mutating" logic in reducers. It
-        // doesn't actually mutate the state because it uses the Immer library,
-        // which detects changes to a "draft state" and produces a brand new
-        // immutable state based off those changes
-        state.value += 1
-      },
-      decrement: (state) => {
-        state.value -= 1
-      },
-      incrementByAmount: (state, action) => {
-        state.value += action.payload
-      },
       addEntry: (state, action) => {
-        console.log(action)
-        state.value = state.value
+        console.log('test Slicer call')
+        console.log(action.payload);
+        state.task = action.payload;
+        if(state.task.title !== '' & state.task.task !== '') {
+            //state.toDoList = state.toDoList.push(state.task)
+        }
       }
     },
   })
