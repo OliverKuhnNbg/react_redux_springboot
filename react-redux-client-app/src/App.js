@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Counter from './features/counter/counter';
 import ToDoList from './features/todolist/ToDoList';
+import DateTimePicker from './features/datetimepicker/DateTimePicker';
+
 
 const mystyle = {
   marginTop: "50px",
@@ -31,6 +33,9 @@ function App() {
       <hr style={mystyle}></hr>
       <div style={mystyle}>
         <ToDoList />
+      </div>
+      <div style={mystyle}>
+        <DateTimePicker />
       </div>
     </div>
   );

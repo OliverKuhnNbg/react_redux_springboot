@@ -1,7 +1,8 @@
 
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MaiselBaseCalendar from './components/big-calendar/MaiselBaseCalendar'
+import MaiselBaseCalendar from './components/big-calendar/MaiselBaseCalendar';
+import CalendarEventsForm from './components/calendar-events-form/CalendarEventsForm';
 import { Calendar as BigCalendar, momentLocalizer, Views as CalendarViews } from 'react-big-calendar';
 
 import events from './events';
@@ -23,6 +24,12 @@ function App() {
 
       <div className="row">
         <MaiselBaseCalendar currentDate={currentDate} events={events} />
+      </div>
+
+      <div className="row mt-4">
+        <div className='col-12'>
+          <CalendarEventsForm />
+        </div>
       </div>
     </div>
   );
