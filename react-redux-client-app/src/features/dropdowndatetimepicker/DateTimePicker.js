@@ -10,6 +10,7 @@ import '../dropdowndatetimepicker/dateTimePicker.scss'
 function DateTimePicker() {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
+  const [inputFieldDateValue, setInputFieldDateValue] = useState("");
 
   const getTimes = () => {
     if(!date) return;
@@ -53,7 +54,8 @@ function DateTimePicker() {
                 }}
               >@</button>
           </span>
-          <input type="text" className="form-control" placeholder="Datum und Zeit wählen" aria-label="Username" aria-describedby="basic-addon1" />
+          <input type="text" className="form-control" placeholder="Datum und Zeit wählen DD.MM.JJJJ - hh:mm" aria-label="Username" aria-describedby="basic-addon1" 
+            value={inputFieldDateValue} />
 
           <div className={"dropdown-menu " + (showCheck ? '' : 'show-element')}>
               <ReactCalendar 
@@ -61,6 +63,7 @@ function DateTimePicker() {
                 view='month'
                 onClickDay={(d) => {
                   setDate(d);
+                  setInputFieldDateValue(format(date, 'dd.MM.yyyy')+' - 00:00 Uhr');
                 }}
               />
         </div>
@@ -76,9 +79,18 @@ function DateTimePicker() {
                     setTime(t);
                     setShowCheck("false");
                     setShowCheckTime("false");
+                    console.log("\ntime slot selected: ");
+                    console.log(date);
                     console.log(time);
+                    console.log(t)
+                    console.log("\nformate time: ");
+                    console.log(format(time, 'dd.MM.yyyy - kk:mm') + ' Uhr');
+
+                    setInputFieldDateValue((format(time, 'dd.MM.yyyy - kk:mm') + ' Uhr'));
                   }}
-                >{format(time, 'kk:mm')}</button>
+                >
+                  {format(time, 'kk:mm')}
+                </button>
               </div>
             ))  
           }
