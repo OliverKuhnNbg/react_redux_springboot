@@ -1,6 +1,10 @@
 .dropdown-menu {
   transform: translateY(52px) !important;
 }
+.timeslot-container {
+  max-height: 300px;
+  overflow: auto;
+}
 
 .show-element {
   display: block;

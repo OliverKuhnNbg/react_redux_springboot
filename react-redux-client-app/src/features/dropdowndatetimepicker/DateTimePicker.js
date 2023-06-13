@@ -14,7 +14,6 @@ function DateTimePicker() {
   const getTimes = () => {
     if(!date) return;
 
-    const selectedDate = date;
     const startTime = add(date, { hours: TIMESLOT_START });
     const endTime = add(date, { hours: TIMESLOT_END });
     
@@ -33,6 +32,7 @@ function DateTimePicker() {
   const times = getTimes();
 
   const [showCheck, setShowCheck] = useState("false");
+  const [showCheckTime, setShowCheckTime] = useState("false");
 
   return (
     <div>
@@ -41,20 +41,21 @@ function DateTimePicker() {
               <button className='btn'
                 onClick={ () => {
                   setShowCheck(!showCheck);
+                  setShowCheckTime("false");
                 }}
               >@</button>
           </span>
           <span className={"input-group-text " + (date === null ? 'hide-element' : '')} id="basic-addon1">
               <button className='btn'
                 onClick={ () => {
-                  setShowCheck(!showCheck);
+                  setShowCheckTime(!showCheckTime);
+                  setShowCheck("false");
                 }}
               >@</button>
           </span>
-          <input type="date" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
-                
+          <input type="text" className="form-control" placeholder="Datum und Zeit wählen" aria-label="Username" aria-describedby="basic-addon1" />
+
           <div className={"dropdown-menu " + (showCheck ? '' : 'show-element')}>
-              <li><a className="dropdown-item" >Action</a></li>
               <ReactCalendar 
                 minDate={new Date()}
                 view='month'
@@ -62,22 +63,26 @@ function DateTimePicker() {
                   setDate(d);
                 }}
               />
+        </div>
 
-              {date !== null &&
-                times?.map((time, i) => (
-                  <div className={'timeSlot-' + i} key={'timeSlot-' + i}> {i}
-                    <button 
-                      type='button'
-                      onClick={(t) => {
-                        console.log(t);
-                        setTime(t);
-                        console.log(time);
-                      }}
-                    >{format(time, 'kk:mm')}</button>
-                  </div>
-                ))  
-              }
-          </div>
+        <div className={"dropdown-menu timeslot-container " + (showCheckTime ? '' : 'show-element')}>
+          {date !== null &&
+            times?.map((time, i) => (
+              <div className={'timeSlot-' + i} key={'timeSlot-' + i}>
+                <button className='btn btn-outline-primary btn-sm col-11 mb-1 mx-1'
+                  type='button'
+                  onClick={(t) => {
+                    console.log(t);
+                    setTime(t);
+                    setShowCheck("false");
+                    setShowCheckTime("false");
+                    console.log(time);
+                  }}
+                >{format(time, 'kk:mm')}</button>
+              </div>
+            ))  
+          }
+        </div>
       </div>
     </div>
   )
