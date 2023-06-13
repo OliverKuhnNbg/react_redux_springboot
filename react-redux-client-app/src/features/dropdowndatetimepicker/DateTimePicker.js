@@ -4,6 +4,7 @@ import { add, format } from 'date-fns';
 import { TIMESLOT_START, TIMESLOT_END, TIMESLOT_INTERVAL} from './dateTimePickerConfig'
 
 import '../dropdowndatetimepicker/dateTimePicker.scss'
+import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 
 
@@ -44,7 +45,9 @@ function DateTimePicker() {
                   setShowCheck(!showCheck);
                   setShowCheckTime("false");
                 }}
-              >@</button>
+              >
+                <MaterialIcon icon="calendar_month" />
+              </button>
           </span>
           <span className={"input-group-text " + (date === null ? 'hide-element' : '')} id="basic-addon1">
               <button className='btn'
@@ -52,7 +55,9 @@ function DateTimePicker() {
                   setShowCheckTime(!showCheckTime);
                   setShowCheck("false");
                 }}
-              >@</button>
+              >
+                <MaterialIcon icon="query_builder" />
+              </button>
           </span>
           <input type="text" className="form-control" placeholder="Datum und Zeit wählen DD.MM.JJJJ - hh:mm" aria-label="Username" aria-describedby="basic-addon1" 
             value={inputFieldDateValue} />
@@ -63,7 +68,7 @@ function DateTimePicker() {
                 view='month'
                 onClickDay={(d) => {
                   setDate(d);
-                  setInputFieldDateValue(format(date, 'dd.MM.yyyy')+' - 00:00 Uhr');
+                  setInputFieldDateValue((format(d, 'dd.MM.yyyy') + ' - 00:00 Uhr'));
                 }}
               />
         </div>
@@ -79,12 +84,6 @@ function DateTimePicker() {
                     setTime(t);
                     setShowCheck("false");
                     setShowCheckTime("false");
-                    console.log("\ntime slot selected: ");
-                    console.log(date);
-                    console.log(time);
-                    console.log(t)
-                    console.log("\nformate time: ");
-                    console.log(format(time, 'dd.MM.yyyy - kk:mm') + ' Uhr');
 
                     setInputFieldDateValue((format(time, 'dd.MM.yyyy - kk:mm') + ' Uhr'));
                   }}
