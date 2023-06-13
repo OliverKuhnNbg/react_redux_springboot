@@ -1,8 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Counter from './features/counter/counter';
 import ToDoList from './features/todolist/ToDoList';
-import DateTimePicker from './features/datetimepicker/DateTimePicker';
+import DateTimePicker from './features/dropdowndatetimepicker/DateTimePicker';
+import Dropdown from './features/dropdown/Dropdown';
 
 
 const mystyle = {
@@ -34,8 +36,13 @@ function App() {
       <div style={mystyle}>
         <ToDoList />
       </div>
+      <hr style={mystyle}></hr>
       <div style={mystyle}>
         <DateTimePicker />
+      </div>
+      <hr style={mystyle}></hr>
+      <div className='row col-12 my-5'>
+        <Dropdown />
       </div>
     </div>
   );
