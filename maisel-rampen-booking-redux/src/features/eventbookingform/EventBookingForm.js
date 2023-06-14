@@ -10,6 +10,7 @@ function EventBookingForm() {
     const [supplier, setSupplier] = useState('');
     const [truckClassification, setTruckClassification] = useState('');
     const [truckPlateId, setTruckPlateId] = useState('');
+    const [packagingUnit, setPackagingUnit] = useState('');
 
     return (
         <div className='col-12'>
@@ -125,7 +126,22 @@ function EventBookingForm() {
                     </div>
                 </div>
 
-                
+                <div className='row mb-3'>
+                    <div className='d-flex'>
+                        <label className='form-label col-2 text-end pe-4'>Verpackungseinheit</label>
+                        <select className='form-select' required
+                            onChange={(e) => {
+                                setPackagingUnit(e.target.value);
+                            }}
+                        >
+                            <option selected disabled value=''>Wählen Sie eine Verpackungseinheit...</option>
+                            <option value='Palette'>Palette</option>
+                            <option value='Fass'>Fass</option>
+                            <option value='Kasten'>Kasten</option>
+                            <option value='Einzellieferung'>Einzellieferung</option>
+                        </select>
+                    </div>
+                </div>
 
             </form>
 
@@ -138,6 +154,7 @@ function EventBookingForm() {
             <p>{supplier}</p>
             <p>{truckClassification}</p>
             <p>{truckPlateId}</p>
+            <p>{packagingUnit}</p>
         </div>
     )
 }
