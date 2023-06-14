@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../datetimepicker/date-time-picker.scss';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
+
 import ReactCalendar from 'react-calendar';
 import { add, format } from 'date-fns';
 import { TIMESLOT_START, TIMESLOT_END, TIMESLOT_INTERVAL} from './dateTimePickerConfig'
@@ -43,7 +45,7 @@ function DateTimePicker() {
                             setShowCheckTime("false");
                         }}
                     >
-                        date
+                        <MaterialIcon icon="calendar_month" />
                     </button>
                 </span>
                 <span className={"input-group-text " + (date === null ? 'hide-element' : '')} id="basic-addon1">
@@ -54,7 +56,7 @@ function DateTimePicker() {
                             setShowCheck("false");
                         }}
                     >
-                        clock
+                        <MaterialIcon icon="query_builder" />
                     </button>
                 </span>
                 <input type="text" className="form-control" placeholder="Datum und Zeit wählen DD.MM.JJJJ - hh:mm" aria-label="Username" aria-describedby="basic-addon1" 
