@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import DateTimePicker from '../datetimepicker/DateTimePicker';
 
 function EventBookingForm() {
 
@@ -142,6 +143,15 @@ function EventBookingForm() {
                         </select>
                     </div>
                 </div>
+
+                <div className='row mb-3'>
+                    <div className='d-flex'>
+                        <label className='form-label col-2 text-end pe-4'>Verpackungseinheit</label>
+                        <DateTimePicker/>
+                    </div>
+                </div>
+
+                
 
             </form>
 
