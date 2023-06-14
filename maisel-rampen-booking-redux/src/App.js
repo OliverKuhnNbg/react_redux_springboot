@@ -8,11 +8,8 @@ function App() {
   return (
     <div className='App'>
       <div className='container-fluid'>
-        <EventBookingForm />
-      </div>
-      <div className='row'>
-        <div className='col-12 alert alert-primary' role='alert'>
-          A simple primary alert—check it out!
+        <div className='row'>
+          <EventBookingForm />
         </div>
       </div>
     </div>
