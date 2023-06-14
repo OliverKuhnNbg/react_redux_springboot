@@ -1,3 +1,5 @@
+
+
 export default [
     {
       'title': 'All Day Event very long title',
@@ -86,6 +88,12 @@ export default [
       'title': 'Multi-day Event',
       'start': new Date(2015, 3, 20, 19, 30, 0),
       'end': new Date(2015, 3, 22, 2, 0, 0)
-    }
+    },
+    {
+        'title': 'All Day Event very long title Oli',
+        'allDay': true,
+        'start': new Date(2023, 5, 9),
+        'end': new Date(2023, 5, 9)
+      },
   ]
   

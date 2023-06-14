@@ -1,6 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Counter from './features/counter/counter';
+import ToDoList from './features/todolist/ToDoList';
+import DateTimePicker from './features/dropdowndatetimepicker/DateTimePicker';
+import Dropdown from './features/dropdown/Dropdown';
+
+
+const mystyle = {
+  marginTop: "50px",
+  marginBottom: "30px",
+};
 
 function App() {
   return (
@@ -20,7 +30,19 @@ function App() {
         </a>
       </header>
       <div>
-        <Counter/>
+        <Counter />
+      </div>
+      <hr style={mystyle}></hr>
+      <div style={mystyle}>
+        <ToDoList />
+      </div>
+      <hr style={mystyle}></hr>
+      <div style={mystyle}>
+        <DateTimePicker />
+      </div>
+      <hr style={mystyle}></hr>
+      <div className='row col-12 my-5'>
+        <Dropdown />
       </div>
     </div>
   );
