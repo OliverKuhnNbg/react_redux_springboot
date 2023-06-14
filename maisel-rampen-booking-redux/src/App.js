@@ -6,7 +6,6 @@ import EventBookingForm from './features/eventbookingform/EventBookingForm';
 function App() {
   return (
     <div className="App">
-      <p>test</p>
       <EventBookingForm />
     </div>
   );
