@@ -6,10 +6,14 @@ import ReactCalendar from 'react-calendar';
 import { add, format } from 'date-fns';
 import { TIMESLOT_START, TIMESLOT_END, TIMESLOT_INTERVAL} from './dateTimePickerConfig'
 
-function DateTimePicker() {
+function DateTimePicker(props) {
     const [date, setDate] = useState(null);
     const [time, setTime] = useState(null);
     const [inputFieldDateValue, setInputFieldDateValue] = useState("");
+
+    const setParentDate = (time) => {
+        props.setDate(time)
+    }
 
     const getTimes = () => {
         if(!date) return;
@@ -67,8 +71,10 @@ function DateTimePicker() {
                         minDate={new Date()}
                         view='month'
                         onClickDay={(d) => {
-                        setDate(d);
-                        setInputFieldDateValue((format(d, 'dd.MM.yyyy') + ' - 00:00 Uhr'));
+                            setDate(d);
+                            setInputFieldDateValue((format(d, 'dd.MM.yyyy') + ' - 00:00 Uhr'));
+                            setShowCheck(!showCheck);
+                            setShowCheckTime(!showCheckTime);
                         }}
                     />
                 </div>
@@ -85,6 +91,7 @@ function DateTimePicker() {
                             setShowCheck("false");
                             setShowCheckTime("false");
 
+                            setParentDate(time);
                             setInputFieldDateValue((format(time, 'dd.MM.yyyy - kk:mm') + ' Uhr'));
                         }}
                         >
