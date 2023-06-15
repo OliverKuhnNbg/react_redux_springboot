@@ -5,6 +5,7 @@ import Counter from './features/counter/counter';
 import ToDoList from './features/todolist/ToDoList';
 import DateTimePicker from './features/dropdowndatetimepicker/DateTimePicker';
 import Dropdown from './features/dropdown/Dropdown';
+import DateTimePickerParent from './features/datetimepickerparent/DateTimePickerParent';
 
 
 const mystyle = {
@@ -43,6 +44,10 @@ function App() {
       <hr style={mystyle}></hr>
       <div className='row col-12 my-5'>
         <Dropdown />
+      </div>
+      <hr style={mystyle}></hr>
+      <div className='row col-12 my-5'>
+        <DateTimePickerParent />
       </div>
     </div>
   );

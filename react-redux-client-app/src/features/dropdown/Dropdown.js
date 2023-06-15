@@ -9,7 +9,7 @@ function Dropdown() {
 
     return (
         <div className='row col-12'>
-            <div class='btn-group'>
+            <div className='btn-group'>
                 <button 
                     type="button" className='btn btn-danger dropdown-toggle' data-bs-toggle="dropdown" aria-expanded="false"
                     onClick={ () => {

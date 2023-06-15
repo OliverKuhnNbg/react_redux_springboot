@@ -8,10 +8,14 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 
 
-function DateTimePicker() {
+function DateTimePicker(props) {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
   const [inputFieldDateValue, setInputFieldDateValue] = useState("");
+
+  const setParentDate = (time) => {
+    props.setSateDate(time)
+  }
 
   const getTimes = () => {
     if(!date) return;
@@ -80,12 +84,12 @@ function DateTimePicker() {
                 <button className='btn btn-outline-primary btn-sm col-11 mb-1 mx-1'
                   type='button'
                   onClick={(t) => {
-                    console.log(t);
                     setTime(t);
                     setShowCheck("false");
                     setShowCheckTime("false");
 
                     setInputFieldDateValue((format(time, 'dd.MM.yyyy - kk:mm') + ' Uhr'));
+                    setParentDate(time);
                   }}
                 >
                   {format(time, 'kk:mm')}
