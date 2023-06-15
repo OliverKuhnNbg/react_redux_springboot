@@ -11,7 +11,7 @@ function DateTimePickerParent() {
     return (
         <div>
             <h2>DateTimePickerParent</h2>
-            <DateTimePicker setStateDate = {setStartDate} />
+            <DateTimePicker setDate = {setStartDate} />
             
             <p className='my-3'>{startDate ? (format(startDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') :""}</p>
             

@@ -14,7 +14,7 @@ function DateTimePicker(props) {
   const [inputFieldDateValue, setInputFieldDateValue] = useState("");
 
   const setParentDate = (time) => {
-    props.setSateDate(time)
+    props.setDate(time)
   }
 
   const getTimes = () => {
