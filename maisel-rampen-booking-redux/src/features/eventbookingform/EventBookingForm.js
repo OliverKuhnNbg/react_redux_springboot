@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
+import { format } from 'date-fns';
 import DateTimePicker from '../datetimepicker/DateTimePicker';
+import '../eventbookingform/event-booking-form.scss'
 
 function EventBookingForm() {
 
@@ -13,8 +15,11 @@ function EventBookingForm() {
     const [truckPlateId, setTruckPlateId] = useState('');
     const [packagingUnit, setPackagingUnit] = useState('');
 
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+
     return (
-        <div className='col-12'>
+        <div className='col-12 form-wrapper'>
             <h2>Event erstellen</h2>
 
             <form className='g-3 needs-validation' noValidate>
@@ -146,13 +151,16 @@ function EventBookingForm() {
 
                 <div className='row mb-3'>
                     <div className='d-flex'>
-                        <label className='form-label col-2 text-end pe-4'>Verpackungseinheit</label>
-                        <DateTimePicker/>
+                        <label className='form-label col-2 text-end pe-4'>Startzeit</label>
+                        <DateTimePicker setDate={ setStartDate } />
                     </div>
                 </div>
-
-                
-
+                <div className='row mb-3'>
+                    <div className='d-flex'>
+                        <label className='form-label col-2 text-end pe-4'>Endzeit</label>
+                        <DateTimePicker setDate={ setEndDate } />
+                    </div>
+                </div>
             </form>
 
             <h3 className='mt-5 mb-3'>Ihre bisher gemachten Eingaben</h3>
@@ -165,6 +173,8 @@ function EventBookingForm() {
             <p>{truckClassification}</p>
             <p>{truckPlateId}</p>
             <p>{packagingUnit}</p>
+            <p className='my-3'>{startDate ? (format(startDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') :""}</p>
+            <p className='my-3'>{endDate ? (format(endDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') :""}</p>
         </div>
     )
 }
