@@ -13,7 +13,7 @@ function DateTimePickerParent() {
             <h2>DateTimePickerParent</h2>
             <DateTimePicker setDate = {setStartDate} />
             
-            <p className='my-3'>{startDate ? (format(startDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') :""}</p>
+            <p className='my-3'>{startDate ? (format(startDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') : ''}</p>
             
         </div>
     )
