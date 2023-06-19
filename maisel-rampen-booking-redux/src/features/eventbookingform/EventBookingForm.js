@@ -1,9 +1,17 @@
 import React, {useState} from 'react'
-import { format } from 'date-fns';
-import DateTimePicker from '../datetimepicker/DateTimePicker';
 import '../eventbookingform/event-booking-form.scss'
 
+import { useDispatch, useSelector } from "react-redux";
+import { addFormEntry } from './eventBookingSlicer';
+
+import { format } from 'date-fns';
+import DateTimePicker from '../datetimepicker/DateTimePicker';
+
+
 function EventBookingForm() {
+
+    /** redux definitions */
+    const dispatch = useDispatch();
 
     /** form fields definitions */
     const [eventType, setEventType] = useState('');
@@ -161,9 +169,31 @@ function EventBookingForm() {
                         <DateTimePicker setDate={ setEndDate } />
                     </div>
                 </div>
+
+                <div>
+                    <button className='btn btn-primary' 
+                        onClick={ (e) => {
+                            e.preventDefault();
+                            dispatch(addFormEntry({
+                                type: eventType,
+                                notes: notes,
+                                orderNumbers: orderNumber,
+                                carrierService: carrierService,
+                                supplier: supplier,
+                                truckClassification: truckClassification,
+                                truckPlateId:truckPlateId,
+                                packagingUnit: packagingUnit,
+                                startDate: startDate.toString(),
+                                endDate: endDate.toString()
+                            }));
+                        }}
+                    >
+                        Sumbit Form
+                    </button>
+                </div>
             </form>
 
-            <h3 className='mt-5 mb-3'>Ihre bisher gemachten Eingaben</h3>
+            <h3 className='mt-5 mb-3'>Ihre bisher gemachten Eingaben:</h3>
             <div className=''></div>
             <p>{eventType}</p>
             <p>{notes}</p>
@@ -173,8 +203,8 @@ function EventBookingForm() {
             <p>{truckClassification}</p>
             <p>{truckPlateId}</p>
             <p>{packagingUnit}</p>
-            <p className='my-3'>{startDate ? (format(startDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') :""}</p>
-            <p className='my-3'>{endDate ? (format(endDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') :""}</p>
+            <p className='my-3'>{startDate ? (format(startDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') : ''}</p>
+            <p className='my-3'>{endDate ? (format(endDate, 'dd.MM.yyyy - kk:mm') + ' Uhr') : ''}</p>
         </div>
     )
 }

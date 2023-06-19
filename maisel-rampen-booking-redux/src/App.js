@@ -3,7 +3,6 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import EventBookingForm from './features/eventbookingform/EventBookingForm';
 
-
 function App() {
   return (
     <div className='App'>
