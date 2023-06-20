@@ -1,4 +1,4 @@
-export const days= [
+export const days = [
     'MON',
     'TUE',
     'WED',
@@ -6,4 +6,19 @@ export const days= [
     'FRI',
     'SAT',
     'SUN'
+]
+
+export const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Okt',
+    'Nov',
+    'Dez'
 ]

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './maisel-calendar.scss';
 
 import MaterialIcon, {colorPalette} from 'material-icons-react';
@@ -8,7 +8,12 @@ import SingleDays from './maiselcalendarcomponents/SingleDays';
 import { range } from './util';
 
 
-function MaiselCalendar() {
+function MaiselCalendar({ startingDate }) {
+  console.log("\ntest output")
+  console.log(startingDate);
+  console.log(startingDate.getMonth());
+  const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());
+
   return (
     <div className='wrapper'>
         <div className="calendarHeadWrapper">
