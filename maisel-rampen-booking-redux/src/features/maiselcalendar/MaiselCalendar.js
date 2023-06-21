@@ -12,20 +12,42 @@ import dayjs, {format}from 'dayjs';
 
 
 function MaiselCalendar({ startingDate }) {
+  const [currentFullDate, setCurrentFullDate] = useState(startingDate);
+
   const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());
   const [currentYear, setCurrentYear] = useState(startingDate.getFullYear());
 
-  const[currentMonthDateArr, setCurrentMonthDateArr] = useState(getMonthCalendar(startingDate));
+  const[currentMonthDateArr, setCurrentMonthDateArr] = useState(getMonthCalendar(currentFullDate));
 
-  console.log("\ntest oli output");
+  console.log('\ntest oli output');
   console.table(currentMonthDateArr);
   
   return (
     <div className='wrapper'>
-        <div className="calendarHeadWrapper">
-          <MaterialIcon icon="chevron_left" />
-          <div className='calendar-head'>{months[currentMonth]} {currentYear}</div>
-          <MaterialIcon icon="chevron_right" />
+        <div className='calendarOptionsWrapper'>
+          <a className='paging' onClick={
+            (e) => {
+              let newPagingDate = new Date(currentFullDate.getFullYear(), currentFullDate.getMonth() - 1, 1);
+              setCurrentFullDate(newPagingDate);
+              setCurrentMonthDateArr(getMonthCalendar(newPagingDate));
+              setCurrentYear(newPagingDate.getFullYear());
+              setCurrentMonth(newPagingDate.getMonth());
+            }
+          }>
+            <MaterialIcon icon='chevron_left' />
+          </a>
+          <div>{months[currentMonth]} {currentYear}</div>
+          <a className='paging' onClick={
+            (e) => {
+              let newPagingDate = new Date(currentFullDate.getFullYear(), currentFullDate.getMonth() + 1, 1);
+              setCurrentFullDate(newPagingDate);
+              setCurrentMonthDateArr(getMonthCalendar(newPagingDate));
+              setCurrentYear(newPagingDate.getFullYear());
+              setCurrentMonth(newPagingDate.getMonth());
+            }
+          }>
+            <MaterialIcon icon='chevron_right' />
+          </a>
         </div>
 
         <div className='calendarHead'>

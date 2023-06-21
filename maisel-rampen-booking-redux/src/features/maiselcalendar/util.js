@@ -7,8 +7,12 @@ export function getMonthCalendar(startingDate) {
     const month = startingDate.getMonth();
     const firstDayOfMonth = dayjs(new Date(year, month, 1)).day();
 
+    return getMonthlyDayMatrix(firstDayOfMonth, month, year);
+}
+
+function getMonthlyDayMatrix(firstDayOfMonth, month, year) {
     let currentMonthCount = 0 - firstDayOfMonth;
-    const daysMatrix = new Array(5).fill([]).map(() => {
+    const daysMatrix = new Array(6).fill([]).map(() => {
         return new Array(7).fill(null).map(() => {
             currentMonthCount++;
             return dayjs(new Date(year, month, currentMonthCount));
