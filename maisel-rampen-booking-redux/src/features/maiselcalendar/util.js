@@ -40,3 +40,10 @@ export const areDatesTheSame = (first, second) => {
     );
 };
 
+export const isDateToday = (first, second) => {
+    let check = first.getDate() === second.getDate() && first.getMonth() === second.getMonth() && first.getFullYear() === second.getFullYear() ? true : false;
+    return check;
+};
+
+
+

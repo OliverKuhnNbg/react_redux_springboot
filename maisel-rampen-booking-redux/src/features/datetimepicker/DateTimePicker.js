@@ -22,9 +22,7 @@ function DateTimePicker(props) {
         const endTime = add(date, { hours: TIMESLOT_END });
         
         const interval = TIMESLOT_INTERVAL;
-
         const timeSlots = [];
-        console.log(startTime.hours);
 
         for(let i = startTime; i < endTime; i=add(i, { minutes: interval })) {
         timeSlots.push(i);

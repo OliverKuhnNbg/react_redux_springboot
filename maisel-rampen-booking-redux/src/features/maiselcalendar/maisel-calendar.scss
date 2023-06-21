@@ -44,8 +44,10 @@
             background-color: none;
             height: 150px;
 
-            &.currentDay {
-                background-color: greenyellow;
+            .currentDay {
+                border-radius: 11%;
+                border: 2px solid darkkhaki;
+                padding: 3px;
             }
         }
     }

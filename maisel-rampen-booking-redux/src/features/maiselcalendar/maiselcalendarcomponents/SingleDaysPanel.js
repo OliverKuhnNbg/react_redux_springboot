@@ -1,8 +1,11 @@
 import React from 'react'
 
 function SingleDaysPanel(props) {
+  
   return (
-    <div className='singleDay '>{props.day}</div>
+    <div className={'singleDay '}>
+      <span className={ props.isDateToday ? 'currentDay' : ''}>{props.day}</span>
+    </div>
   )
 }
 

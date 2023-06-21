@@ -6,19 +6,20 @@ import { weekDays, months } from './constants';
 import HeadDays from './maiselcalendarcomponents/HeadDays';
 import SingleDays from './maiselcalendarcomponents/SingleDays';
 import SingleDaysPanel from './maiselcalendarcomponents/SingleDaysPanel';
-import { range, areDatesTheSame, getDateObj, getSortedDays, getMonthCalendar } from './util';
+import { range, getDateObj, getSortedDays, getMonthCalendar, isDateToday } from './util';
 import { getDaysInMonth } from 'date-fns';
 import dayjs, {format}from 'dayjs';
 
 
 function MaiselCalendar({ startingDate }) {
-  const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());//useState(startingDate.getMonth());
+  const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());
   const [currentYear, setCurrentYear] = useState(startingDate.getFullYear());
-  const daysInMonth = getDaysInMonth(startingDate);
 
   const[currentMonthDateArr, setCurrentMonthDateArr] = useState(getMonthCalendar(startingDate));
+
   console.log("\ntest oli output");
   console.table(currentMonthDateArr);
+  
   return (
     <div className='wrapper'>
         <div className="calendarHeadWrapper">
@@ -36,7 +37,7 @@ function MaiselCalendar({ startingDate }) {
         <div className='calendarBody '>
           {currentMonthDateArr.map((week) => 
                 week.map((day) => 
-                  <SingleDaysPanel day={day.$D}/>
+                  <SingleDaysPanel day={day.$D} isDateToday={isDateToday(startingDate, day.$d)} />
                 )
           )}
         </div>
