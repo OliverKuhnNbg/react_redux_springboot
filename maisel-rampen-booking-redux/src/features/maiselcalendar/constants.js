@@ -1,11 +1,11 @@
-export const days = [
+export const weekDays = [
+    'SUN',
     'MON',
     'TUE',
     'WED',
     'THU',
     'FRI',
-    'SAT',
-    'SUN'
+    'SAT'
 ]
 
 export const months = [
