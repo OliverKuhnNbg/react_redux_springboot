@@ -44,7 +44,7 @@
         .singleDay {
             border: 1px solid darkgrey;
             text-align: right;
-            padding: 15px;
+            padding: 10px;
             background-color: none;
             height: 100px;
 
@@ -52,6 +52,13 @@
                 border-radius: 11%;
                 border: 2px solid darkkhaki;
                 padding: 3px;
+            }
+
+            .singleEventEntry {
+                margin-top: 3px;
+                font-size: 9px;
+                text-align: left;
+                padding: 0px;
             }
         }
     }

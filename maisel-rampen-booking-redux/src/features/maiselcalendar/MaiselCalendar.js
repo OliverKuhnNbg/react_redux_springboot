@@ -59,7 +59,7 @@ function MaiselCalendar({ startingDate }) {
         <div className='calendarBody '>
           {currentMonthDateArr.map((week) => 
                 week.map((day) => 
-                  <SingleDaysPanel day={day.$D} isDateToday={isDateToday(startingDate, day.$d)} />
+                  <SingleDaysPanel dayDate={day.$d} isDateToday={isDateToday(startingDate, day.$d)} />
                 )
           )}
         </div>
