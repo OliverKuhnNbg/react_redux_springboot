@@ -22,3 +22,12 @@ export const months = [
     'Nov',
     'Dez'
 ]
+
+export const viewMappingBase = [
+    'day',
+    'twoDay',
+    'week',
+    'month',
+    'quarter',
+    'year'
+]

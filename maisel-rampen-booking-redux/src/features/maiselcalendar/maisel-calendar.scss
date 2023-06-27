@@ -22,11 +22,13 @@
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         height: 27px;
+        
+        background-color: darkkhaki;
 
         .headDay {
            text-align: center;
-           background-color: darkkhaki; 
            font-size: 1rem;
+           margin: auto;
         }
     }
 
@@ -35,7 +37,6 @@
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: repeat(5, 1fr);
-        padding-bottom: 10px;
 
         &.calendarBodyFourRows {
             grid-template-rows: repeat(4, 1fr);
@@ -63,5 +64,3 @@
         }
     }
 }
-
-
