@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
       <div className='container-fluid'>
         <div className='row col-10 offset-1'>
-          <MaiselCalendar startingDate={ new Date() } />
+          <MaiselCalendar startingDate={ new Date() } view={'month'} />
         </div>
         <div className='row'>
             <EventBookingForm />

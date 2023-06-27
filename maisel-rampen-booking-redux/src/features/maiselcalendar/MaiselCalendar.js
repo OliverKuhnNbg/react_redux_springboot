@@ -6,6 +6,7 @@ import { weekDays, months } from './constants';
 import HeadDays from './maiselcalendarcomponents/HeadDays';
 import SingleDays from './maiselcalendarcomponents/SingleDays';
 import SingleDaysPanel from './maiselcalendarcomponents/SingleDaysPanel';
+import CalendarPagingMonth from './maiselcalendarcomponents/CalendarPagingMonth';
 import { range, getDateObj, getSortedDays, getMonthCalendar, isDateToday } from './util';
 import { getDaysInMonth } from 'date-fns';
 import dayjs, {format}from 'dayjs';
@@ -24,31 +25,15 @@ function MaiselCalendar({ startingDate }) {
   
   return (
     <div className='wrapper'>
-        <div className='calendarOptionsWrapper'>
-          <a className='paging' onClick={
-            (e) => {
-              let newPagingDate = new Date(currentFullDate.getFullYear(), currentFullDate.getMonth() - 1, 1);
-              setCurrentFullDate(newPagingDate);
-              setCurrentMonthDateArr(getMonthCalendar(newPagingDate));
-              setCurrentYear(newPagingDate.getFullYear());
-              setCurrentMonth(newPagingDate.getMonth());
-            }
-          }>
-            <MaterialIcon icon='chevron_left' />
-          </a>
-          <div>{months[currentMonth]} {currentYear}</div>
-          <a className='paging' onClick={
-            (e) => {
-              let newPagingDate = new Date(currentFullDate.getFullYear(), currentFullDate.getMonth() + 1, 1);
-              setCurrentFullDate(newPagingDate);
-              setCurrentMonthDateArr(getMonthCalendar(newPagingDate));
-              setCurrentYear(newPagingDate.getFullYear());
-              setCurrentMonth(newPagingDate.getMonth());
-            }
-          }>
-            <MaterialIcon icon='chevron_right' />
-          </a>
-        </div>
+        <CalendarPagingMonth 
+          currentFullDate={currentFullDate}
+          currentMonth={currentMonth}
+          currentYear={currentYear}
+          setCurrentFullDate={setCurrentFullDate} 
+          setCurrentMonthDateArr={setCurrentMonthDateArr} 
+          setCurrentYear={setCurrentYear} 
+          setCurrentMonth={setCurrentMonth} 
+        />
 
         <div className='calendarHead'>
           {currentMonthDateArr[0].map((day) => 
