@@ -22,6 +22,20 @@ function getMonthlyDayMatrix(firstDayOfMonth, month, year) {
     return daysMatrix;
 }
 
+export function getDayCalendar(startingDate) {
+    const year = startingDate.getFullYear();
+    const month = startingDate.getMonth();
+    const day = startingDate.getDate();
+
+    const hourMatrix = new Array(24).fill([]).map(() => {
+        return new Array(2).fill(null).map(() => {
+            return dayjs(new Date(year, month, day)); //TODO add times to date 00 min & 30 min
+        })
+    })
+
+    return hourMatrix;
+}
+
 export const range = (end) => {
     const results = Array.from({length: end}, (_, i) => i + 1)
     return results;

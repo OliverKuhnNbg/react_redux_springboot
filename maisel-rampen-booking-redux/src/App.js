@@ -11,6 +11,7 @@ function App() {
         <div className='row col-10 offset-1'>
           <MaiselCalendar startingDate={ new Date() } view={'month'} />
         </div>
+        
         <div className='row'>
             <EventBookingForm />
         </div>
