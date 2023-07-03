@@ -10,12 +10,15 @@ import CalendarMonthlyView from './maiselcalendarcomponents/CalendarMonthlyView'
 import { getMonthCalendar, isDateToday } from './util';
 import { getDaysInMonth } from 'date-fns';
 import dayjs, {format}from 'dayjs';
+import { CalendarDailyView } from './maiselcalendarcomponents/CalendarDailyView';
 
 
 function MaiselCalendar({ startingDate }) { 
   return (
     <div>
       <CalendarMonthlyView startingDate={startingDate} />
+      <br />
+      <CalendarDailyView />
     </div>
   )
 }
