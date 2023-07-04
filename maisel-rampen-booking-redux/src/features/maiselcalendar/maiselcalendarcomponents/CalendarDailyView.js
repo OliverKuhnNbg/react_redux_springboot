@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SingleDaysPanel from './SingleDaysPanel';
-import { SingleTimeslotsPanel } from './SingleTimeslotsPanel';
+import { SingleTimesPanel } from './SingleTimesPanel';
 import DailyViewHead from './DailyViewHead';
 import { getDayCalendar } from '../util';
 import { add, format } from 'date-fns';
@@ -21,7 +21,7 @@ export function CalendarDailyView({ startingDate }) {
     
     return (
         <div className='wrapper'>
-            <div className='timeSlotHead'>
+            <div className='flex-container'>
                 <div className='calenderHeadAdd'>Zeit</div>
                 <div className='calendarHeadRamps'>
                     {ramps.map((ramp, index) => 
@@ -30,13 +30,21 @@ export function CalendarDailyView({ startingDate }) {
                 </div>
             </div>
             
-            <div className='timeSlotHead'>
-                <div className='calenderHeadAdd'>
+            <div className='flex-container'>
+                <div className='calenderBodyAdd'>
                     {currentDayDateArr.map((slots) => 
-                        slots.map((slot) => <SingleTimeslotsPanel slot={slot}/>)
+                        slots.map((slot) => <SingleTimesPanel slot={slot}/>)
                     )}
                 </div>
-                <div className='calendarTimeslotsRamps'>test</div>
+                <div className='calendarBodyRamps'>
+                    {currentDayDateArr.map((slots) => 
+                        slots.map((slot) => 
+                            ramps.map((ramp, index) => 
+                                <div className={'bodyDay ramp-' + index}>{index + ' '} ** {(format(slot.$d, 'kk:mm'))} *</div>
+                            )
+                        )
+                    )}
+                </div>
             </div>
         </div>
     )

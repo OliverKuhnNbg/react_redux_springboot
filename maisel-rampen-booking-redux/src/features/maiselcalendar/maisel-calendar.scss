@@ -64,12 +64,30 @@
         }
     }
 
-    .timeSlotHead{
+    .flex-container{
         display: flex;
 
         .calenderHeadAdd {
             text-align: center;
             width: 65px;
+
+            background-color: darkkhaki;
+
+            .singleTimes {
+                text-align: center;
+                border: 1px solid darkgrey;
+                height: 28px;
+            }
+        }
+        .calenderBodyAdd {
+            text-align: center;
+            width: 65px;
+
+            .singleTimes {
+                text-align: center;
+                border: 1px solid darkgrey;
+                height: 28px;
+            }
         }
 
         .calendarHeadRamps {
@@ -89,13 +107,26 @@
                 }
             }
         }
+
+        .calendarBodyRamps {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            .bodyDay {
+                text-align: center;
+                font-size: 1rem;
+                border: 1px solid darkgray;
+                height: 28px;
+            }
+        }
+
         .calendarTimeslotsRamps {
             width: 100%;
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             height: 27px;
             
-
             .headDay {
             text-align: center;
             font-size: 1rem;
@@ -104,13 +135,6 @@
                     width: 65px ;
                 }
             }
-        }
-    }
-    .singleTimes {
-        text-align: center;
-
-        .hidden {
-            display: none;
         }
     }
 }
