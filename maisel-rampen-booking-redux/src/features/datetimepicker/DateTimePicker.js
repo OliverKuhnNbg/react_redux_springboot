@@ -84,7 +84,6 @@ function DateTimePicker(props) {
                         <button className='btn btn-outline-primary btn-sm col-11 mb-1 mx-1'
                         type='button'
                         onClick={(t) => {
-                            console.log(t);
                             setTime(t);
                             setShowCheck("false");
                             setShowCheckTime("false");

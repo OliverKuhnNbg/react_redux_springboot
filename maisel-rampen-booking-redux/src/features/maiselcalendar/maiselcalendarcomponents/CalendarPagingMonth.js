@@ -5,7 +5,6 @@ import { weekDays, months } from '../constants';
 import { getMonthCalendar } from '../util';
 
 function CalendarPagingMonth(props) {
-  console.log('test month Paging')
 
   const setParentCurrentFullDate = (date) => {
     props.setCurrentFullDate(date);

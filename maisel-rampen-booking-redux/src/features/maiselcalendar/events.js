@@ -129,4 +129,10 @@ export default [
         'start': new Date(2023, 6, 5, 19, 30, 0),
         'end': new Date(2023, 6, 5, 20, 0, 0)
     },
+    {
+        'title': 'Oli Juli test 3',
+        'rampe': 'Heckverladung',
+        'start': new Date(2023, 6, 3, 19, 30, 0),
+        'end': new Date(2023, 6, 3, 20, 0, 0)
+    },
 ]

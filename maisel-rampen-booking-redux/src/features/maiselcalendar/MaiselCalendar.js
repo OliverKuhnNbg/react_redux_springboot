@@ -18,7 +18,7 @@ function MaiselCalendar({ startingDate }) {
     <div>
       <CalendarMonthlyView startingDate={startingDate} />
       <br />
-      <CalendarDailyView />
+      <CalendarDailyView startingDate={startingDate} />
     </div>
   )
 }

@@ -27,9 +27,18 @@ export function getDayCalendar(startingDate) {
     const month = startingDate.getMonth();
     const day = startingDate.getDate();
 
+    let currentMonthCount = 0;
+    let i = 0;
     const hourMatrix = new Array(24).fill([]).map(() => {
+        i++
+        let j = 0;
         return new Array(2).fill(null).map(() => {
-            return dayjs(new Date(year, month, day)); //TODO add times to date 00 min & 30 min
+            j++;
+            if(j === 1) {
+                return dayjs(new Date(year, month, day, i-1, 0, 0));
+            } else {
+                return dayjs(new Date(year, month, day, i-1, 30, 0));
+            }
         })
     })
 

@@ -14,9 +14,7 @@ function SingleDaysPanel(props) {
       let eventDateYear = eventDate.getFullYear();
       
       if (eventDateDay === currentPanelDate.getDate() && eventDateMonth === currentPanelDate.getMonth() && eventDateYear === currentPanelDate.getFullYear()) {
-        console.log("\n\ntest logic");
-        console.log(currentPanelDate);
-        console.log(event.start)
+        
         eventListPerDay.push(event);
       }
     });
@@ -24,8 +22,6 @@ function SingleDaysPanel(props) {
     return eventListPerDay;
   }
   const currentDayEvents = isEventPresent(props.dayDate);
-  console.log("events per day: " + currentDayEvents.length)
-  console.log(currentDayEvents[0])
 
   return (
     <div className={'singleDay '}>

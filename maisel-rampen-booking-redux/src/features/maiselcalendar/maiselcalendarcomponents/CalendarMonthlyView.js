@@ -16,8 +16,8 @@ function CalendarMonthlyView({startingDate}) {
 
     const[currentMonthDateArr, setCurrentMonthDateArr] = useState(getMonthCalendar(currentFullDate));
 
-    console.log('\ntest oli output');
-    console.table(currentMonthDateArr);
+    /* console.log('\ntest oli output');
+    console.table(currentMonthDateArr); */
 
     return (
         <div className='wrapper'>
@@ -39,7 +39,7 @@ function CalendarMonthlyView({startingDate}) {
             
             <div className='calendarBody '>
                 {currentMonthDateArr.map((week) => 
-                    week.map((day) => 
+                    week.map((day) =>
                         <SingleDaysPanel dayDate={day.$d} isDateToday={isDateToday(startingDate, day.$d)} />
                     )
                 )}
