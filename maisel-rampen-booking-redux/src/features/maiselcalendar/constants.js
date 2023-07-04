@@ -31,3 +31,13 @@ export const viewMappingBase = [
     'quarter',
     'year'
 ]
+
+export const ramps = [
+    'Rampe 1',
+    'Rampe 2',
+    'Rampe 3',
+    'Anlieferung',
+    'Heck 1',
+    'Heck 2',
+    'Heck 3'
+]

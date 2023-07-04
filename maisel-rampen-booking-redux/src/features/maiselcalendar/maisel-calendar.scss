@@ -63,4 +63,54 @@
             }
         }
     }
+
+    .timeSlotHead{
+        display: flex;
+
+        .calenderHeadAdd {
+            text-align: center;
+            width: 65px;
+        }
+
+        .calendarHeadRamps {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            height: 27px;
+            
+            background-color: darkkhaki;
+
+            .headDay {
+            text-align: center;
+            font-size: 1rem;
+            margin: auto;
+                &.ramp-0{
+                    width: 65px ;
+                }
+            }
+        }
+        .calendarTimeslotsRamps {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            height: 27px;
+            
+
+            .headDay {
+            text-align: center;
+            font-size: 1rem;
+            margin: auto;
+                &.ramp-0{
+                    width: 65px ;
+                }
+            }
+        }
+    }
+    .singleTimes {
+        text-align: center;
+
+        .hidden {
+            display: none;
+        }
+    }
 }
