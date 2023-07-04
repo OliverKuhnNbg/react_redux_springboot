@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import SingleDaysPanel from './SingleDaysPanel';
 import { SingleTimesPanel } from './SingleTimesPanel';
-import DailyViewHead from './DailyViewHead';
+import SingleTimeslotsPanel from './SingleTimeslotsPanel';
 import { getDayCalendar } from '../util';
 import { add, format } from 'date-fns';
 import { ramps } from '../constants';
@@ -40,7 +39,7 @@ export function CalendarDailyView({ startingDate }) {
                     {currentDayDateArr.map((slots) => 
                         slots.map((slot) => 
                             ramps.map((ramp, index) => 
-                                <div className={'bodyDay ramp-' + index}>{index + ' '} ** {(format(slot.$d, 'kk:mm'))} *</div>
+                                <SingleTimeslotsPanel slotDate={slot.$d} keyProp={index} />
                             )
                         )
                     )}
