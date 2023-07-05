@@ -39,7 +39,7 @@ export function CalendarDailyView({ startingDate }) {
                     {currentDayDateArr.map((slots) => 
                         slots.map((slot) => 
                             ramps.map((ramp, index) => 
-                                <SingleTimeslotsPanel slotDate={slot.$d} keyProp={index} />
+                                <SingleTimeslotsPanel slotDate={slot.$d} rampIndex={index} />
                             )
                         )
                     )}
