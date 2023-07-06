@@ -126,13 +126,19 @@ export default [
     {
         'title': 'Oli Juli test 2',
         'rampe': 'Heckverladung',
-        'start': new Date(2023, 6, 5, 19, 30, 0),
-        'end': new Date(2023, 6, 5, 20, 0, 0)
+        'start': new Date(2023, 6, 4, 19, 30, 0),
+        'end': new Date(2023, 6, 4, 20, 0, 0)
     },
     {
         'title': 'Oli Juli test 3',
         'rampe': 'Heckverladung',
-        'start': new Date(2023, 6, 4, 19, 30, 0),
-        'end': new Date(2023, 6, 4, 20, 0, 0)
+        'start': new Date(2023, 6, 6, 19, 30, 0),
+        'end': new Date(2023, 6, 6, 20, 0, 0)
+    },
+    {
+        'title': 'Oli Juli test 4',
+        'rampe': 'Rampe1',
+        'start': new Date(2023, 6, 6, 8, 30, 0),
+        'end': new Date(2023, 6, 6, 12, 0, 0)
     },
 ]
