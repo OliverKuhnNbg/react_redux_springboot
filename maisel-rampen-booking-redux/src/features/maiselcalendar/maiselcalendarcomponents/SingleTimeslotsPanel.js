@@ -1,6 +1,7 @@
 import React from 'react'
 import { add, format } from 'date-fns';
 import events from '../events';
+import { getAmountOfTimeSlots } from '../util'
 
 function SingleTimeslotsPanel({slotDate, rampIndex}) {
 
@@ -26,6 +27,13 @@ function SingleTimeslotsPanel({slotDate, rampIndex}) {
     return eventListPerDay;
   }
   const currentSlotEventsStart = getCurrentSlotEvents(slotDate);
+
+  let eventUsageOfSlots = 0;
+  if(currentSlotEventsStart.length>0) {
+    console.log("\n\n currentslot event");
+    console.log(currentSlotEventsStart);
+    eventUsageOfSlots = getAmountOfTimeSlots(currentSlotEventsStart[0].start, currentSlotEventsStart[0].end);
+  }
 
   const getCurrentSlotEventsEnd = (currentSlotDate) => {
     let eventListPerDay = [];
@@ -70,15 +78,21 @@ function SingleTimeslotsPanel({slotDate, rampIndex}) {
   }
   const isBookedEnd = isSlotBookedEnd(slotDate); 
 
-  console.log('\n\nevents per day');
+  /* console.log('\n\nevents per day');
   console.log(isBookedStart);
   console.log(currentSlotEventsStart.length);
   console.log(currentSlotEventsStart);
   console.log(currentSlotEventsStart.length);
-  console.log(currentSlotEventsStart);
+  console.log(currentSlotEventsStart); */
+
+  const eventHeight = {
+    height: (eventUsageOfSlots+1)*28+'px',
+  }
 
   return (
-    <div className={'bodyDay ramp-' + rampIndex}>{isBookedStart===true ? 'Start' : '' } {isBookedEnd===true ? 'End' : ''} {rampIndex + ' '} ** {(format(slotDate, 'kk:mm'))} *</div>
+    <div className={'bodyDay ramp-' + rampIndex}>
+      <div className={'ramp '} style={eventHeight}>{isBookedStart===true ? 'Start' : '' }</div>
+    </div>
   )
 }
 

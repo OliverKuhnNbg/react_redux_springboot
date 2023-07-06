@@ -72,5 +72,16 @@ export const isDateToday = (first, second) => {
     return check;
 };
 
+export const getAmountOfTimeSlots = (startDate, endDate) => {
+    const differenceInMs = Math.abs(endDate - startDate);
+    const diffInMin = Math.floor((differenceInMs/1000/60) << 0);
+    const slotAmount = diffInMin/30;
+    console.log('\n\n\tdifferenceInMs: ' + differenceInMs)
+    console.log('\n\n\tdifferenceInMin: ' + diffInMin)
+    console.log('\n\n\tslotAmount: ' + slotAmount)
+    
+    return slotAmount;
+};
+
 
 

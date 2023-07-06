@@ -118,6 +118,18 @@
                 font-size: 1rem;
                 border: 1px solid darkgray;
                 height: 28px;
+
+                .ramp {
+                    z-index: 1;
+                    background-color: red;
+                    height: 50px;
+                    position: absolute;
+                }
+                .ramp-0 {
+                    z-index: 1;
+                    background-color: red;
+                    height:30px;
+                }
             }
         }
 
