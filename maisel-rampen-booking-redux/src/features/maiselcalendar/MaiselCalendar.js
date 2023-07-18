@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './maisel-calendar.scss';
 
 import MaterialIcon, {colorPalette} from 'material-icons-react';
@@ -11,11 +11,21 @@ import { getMonthCalendar, isDateToday } from './util';
 import { getDaysInMonth } from 'date-fns';
 import dayjs, {format}from 'dayjs';
 import { CalendarDailyView } from './maiselcalendarcomponents/CalendarDailyView';
+import { RampFilter } from './maiselcalendarcomponents/RampFilter';
+import { ramps } from './constants';
 
 
 function MaiselCalendar({ startingDate }) { 
+
+  const [checkedFilters, setCheckedFilters] = useState(new Array(ramps.length).fill(false));
+
+  console.log('checked filters - maiselCalendar');
+  console.log(checkedFilters);
+
   return (
     <div>
+      <RampFilter allResourcesList={ramps} checkedFilters={ checkedFilters } setCheckedFilters={setCheckedFilters} />
+      <br/>
       <CalendarMonthlyView startingDate={startingDate} />
       <br />
       <CalendarDailyView startingDate={startingDate} />

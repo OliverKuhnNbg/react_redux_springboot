@@ -138,13 +138,13 @@ export default [
     {
         'title': 'Oli Juli test 4',
         'rampe': 'Rampe1',
-        'start': new Date(2023, 6, 6, 8, 30, 0),
-        'end': new Date(2023, 6, 6, 12, 0, 0)
+        'start': new Date(2023, 6, 7, 8, 30, 0),
+        'end': new Date(2023, 6, 7, 12, 0, 0)
     },
     {
         'title': 'Oli Juli test 5',
         'rampe': 'Rampe1',
-        'start': new Date(2023, 6, 6, 13, 0, 0),
-        'end': new Date(2023, 6, 6, 15, 30, 0)
+        'start': new Date(2023, 6, 7, 13, 0, 0),
+        'end': new Date(2023, 6, 7, 15, 30, 0)
     },
 ]
