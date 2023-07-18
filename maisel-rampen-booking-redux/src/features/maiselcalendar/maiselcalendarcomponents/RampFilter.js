@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import {ramps} from '../constants';
 
-export function RampFilter({ allResourcesList, checkedFilters, setCheckedFilters }) {
+export function RampFilter({ allResourcesList, setFilterIndex }) {
     /* const ramps = allResourcesList; */
     
-    const setParentCheckedFilters = (arr) => {
-        setCheckedFilters(arr);
-        console.table(arr);
+    const setParentFiltersIndex = (i) => {
+        setFilterIndex(i);
+        console.log('\n\n\nseelcted index: ' + i);
     }
 
     const handleCheck = (index) => {
-        checkedFilters[index] = !checkedFilters[index];
-        setParentCheckedFilters(checkedFilters);
+        /* checkedFilters[index] = !checkedFilters[index]; */
+        setParentFiltersIndex(index);
     };
 
     return (
