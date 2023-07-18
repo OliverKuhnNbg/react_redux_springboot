@@ -20,12 +20,8 @@ function MaiselCalendar({ startingDate }) {
   const [checkedFilters, setCheckedFilters] = useState(new Array(ramps.length).fill(false));
   const [filterIndex, setFilterIndex] = useState(null);
 
-  console.log('checked filters - maiselCalendar');
-  console.log(checkedFilters);
-
   /* listen to filter options */
   useEffect(() => {
-    console.log('\n\n\n\ti changed');
     let dataArr = checkedFilters;
     dataArr[filterIndex] = !dataArr[filterIndex];
     setCheckedFilters(dataArr);
