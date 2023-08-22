@@ -6,8 +6,9 @@ import { getCurrentDayDate } from '../../util';
 const localizer = momentLocalizer(moment);
 
 class MaiselBaseCalendar extends Component {
-
+    
     render() {
+        
         return (
             <div className="calendar-wrapper">
                 <BigCalendar
@@ -17,6 +18,8 @@ class MaiselBaseCalendar extends Component {
                     defaultDate={getCurrentDayDate()}
                     popup={false}
                     onShowMore={(events, date) => this.setState({ showModal: true, events })}
+                    steps={30}
+                    timeslots={1}
                 />
             </div>
         );

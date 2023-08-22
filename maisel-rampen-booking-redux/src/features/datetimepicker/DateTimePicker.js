@@ -22,9 +22,7 @@ function DateTimePicker(props) {
         const endTime = add(date, { hours: TIMESLOT_END });
         
         const interval = TIMESLOT_INTERVAL;
-
         const timeSlots = [];
-        console.log(startTime.hours);
 
         for(let i = startTime; i < endTime; i=add(i, { minutes: interval })) {
         timeSlots.push(i);
@@ -86,7 +84,6 @@ function DateTimePicker(props) {
                         <button className='btn btn-outline-primary btn-sm col-11 mb-1 mx-1'
                         type='button'
                         onClick={(t) => {
-                            console.log(t);
                             setTime(t);
                             setShowCheck("false");
                             setShowCheckTime("false");

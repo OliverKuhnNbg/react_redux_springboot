@@ -94,6 +94,21 @@ export default [
         'allDay': true,
         'start': new Date(2023, 5, 9),
         'end': new Date(2023, 5, 9)
-      },
+    },
+    {
+      'title': 'Late Night Event Oli tets',
+      'start': new Date(2023, 5, 19, 19, 30, 0),
+      'end': new Date(2023, 5, 19, 22, 0, 0),
+    },
+    {
+      'title': 'Late Night Event Oli tets2',
+      'start': new Date(2023, 5, 19, 19, 30, 0),
+      'end': new Date(2023, 5, 19, 22, 30, 0),
+    },
+    {
+      'title': 'Late Night Event Oli tets2',
+      'start': new Date(2023, 5, 19, 22, 30, 0),
+      'end': new Date(2023, 5, 19, 23, 0, 0),
+    },
   ]
   

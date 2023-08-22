@@ -1,0 +1,150 @@
+.wrapper {
+    margin: 5px;
+    //height: 100vh;
+    width:100%;
+    border: 1px solid darkgrey;
+
+    .calendarOptionsWrapper {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.1rem;
+
+        .paging {
+            cursor: pointer;
+        }
+    }
+    
+    .calendarHead {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        height: 27px;
+        
+        background-color: darkkhaki;
+
+        .headDay {
+           text-align: center;
+           font-size: 1rem;
+           margin: auto;
+        }
+    }
+
+    .calendarBody {
+        height: calc(100% - 27px - 40px);
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+
+        &.calendarBodyFourRows {
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        .singleDay {
+            border: 1px solid darkgrey;
+            text-align: right;
+            padding: 10px;
+            background-color: none;
+            height: 100px;
+
+            .currentDay {
+                border-radius: 11%;
+                border: 2px solid darkkhaki;
+                padding: 3px;
+            }
+
+            .singleEventEntry {
+                margin-top: 3px;
+                font-size: 9px;
+                text-align: left;
+                padding: 0px;
+            }
+        }
+    }
+
+    .flex-container{
+        display: flex;
+
+        .calenderHeadAdd {
+            text-align: center;
+            width: 65px;
+
+            background-color: darkkhaki;
+
+            .singleTimes {
+                text-align: center;
+                border: 1px solid darkgrey;
+                height: 28px;
+            }
+        }
+        .calenderBodyAdd {
+            text-align: center;
+            width: 65px;
+
+            .singleTimes {
+                text-align: center;
+                border: 1px solid darkgrey;
+                height: 28px;
+            }
+        }
+
+        .calendarHeadRamps {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            height: 27px;
+            
+            background-color: darkkhaki;
+
+            .headDay {
+            text-align: center;
+            font-size: 1rem;
+            margin: auto;
+                &.ramp-0{
+                    width: 65px ;
+                }
+            }
+        }
+
+        .calendarBodyRamps {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            .bodyDay {
+                text-align: center;
+                font-size: 1rem;
+                border: 1px solid darkgray;
+                position: relative;
+                height: 28px;
+                width: 100%;
+
+                .ramp {
+                    z-index: 1;
+                    background-color: red;
+                    position: absolute;
+                    width: 100%;
+                }
+                
+            }
+        }
+
+        .calendarTimeslotsRamps {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            height: 27px;
+            
+            .headDay {
+            text-align: center;
+            font-size: 1rem;
+            margin: auto;
+                &.ramp-0{
+                    width: 65px ;
+                }
+            }
+        }
+    }
+}

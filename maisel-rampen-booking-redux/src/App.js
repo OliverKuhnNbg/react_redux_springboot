@@ -2,14 +2,18 @@
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import EventBookingForm from './features/eventbookingform/EventBookingForm';
-
+import MaiselCalendar from './features/maiselcalendar/MaiselCalendar';
 
 function App() {
   return (
     <div className='App'>
       <div className='container-fluid'>
+        <div className='row col-10 offset-1'>
+          <MaiselCalendar startingDate={ new Date() } view={'month'} />
+        </div>
+        
         <div className='row'>
-          <EventBookingForm />
+            <EventBookingForm />
         </div>
       </div>
     </div>
