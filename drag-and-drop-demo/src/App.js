@@ -49,6 +49,8 @@ function App() {
                             {...provided.draggableProps} 
                             ref={provided.innerRef} >
                             <h3>{store.name}</h3>
+
+                            {provided.placeholder}
                           </div>
                         )}
                       </Draggable>
