@@ -3,6 +3,7 @@ import { DATA } from './util';
 import logo from './logo.svg';
 import './App.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { StorePanel } from './components/StorePanel';
 
 
 function App() {
@@ -47,10 +48,8 @@ function App() {
                           <div className='store-container' 
                             {...provided.dragHandleProps} 
                             {...provided.draggableProps} 
-                            ref={provided.innerRef} >
-                            <h3>{store.name}</h3>
-
-                            {provided.placeholder}
+                            ref={provided.innerRef}>
+                            <StorePanel {...store} />
                           </div>
                         )}
                       </Draggable>
