@@ -10,26 +10,49 @@ function App() {
 
   const [stores, setStores] = useState(DATA);
   const handleDragDrop = (results) => {
-    console.log('drag-n-Drop function called');
-    console.log(results);
-    const {source, destination, type} = results;
+    const { source, destination, type } = results;
 
-    if(!destination) return;
-    if(source.droppableId === destination.droppableId && source.index === destination.index) return;
-    if(type === 'group') {
+    if (!destination) return;
+
+    if (source.droppableId === destination.droppableId && source.index === destination.index) return;
+
+    if (type === "group") {
       const reorderedStores = [...stores];
 
-      const sourceIndex = source.index
-      const destinationIndex = destination.index
-      console.log(source.index)
-      console.log(destination.index)
-      const [removedStore] = reorderedStores.splice(sourceIndex, 1);
-      reorderedStores.splice(destinationIndex, 0, removedStore);
+      const storeSourceIndex = source.index;
+      const storeDestinatonIndex = destination.index;
+
+      const [removedStore] = reorderedStores.splice(storeSourceIndex, 1);
+      reorderedStores.splice(storeDestinatonIndex, 0, removedStore);
 
       return setStores(reorderedStores);
     }
+  
+    const itemSourceIndex = source.index;
+    const itemDestinationIndex = destination.index;
 
+    const storeSourceIndex = stores.findIndex(
+      (store) => store.id === source.droppableId
+    );
+    const storeDestinationIndex = stores.findIndex(
+      (store) => store.id === destination.droppableId
+    );
 
+    const newSourceItems = [...stores[storeSourceIndex].items];
+    const newDestinationItems =
+      source.droppableId !== destination.droppableId
+        ? [...stores[storeDestinationIndex].items]
+        : newSourceItems;
+
+    const [deletedItem] = newSourceItems.splice(itemSourceIndex, 1);
+    newDestinationItems.splice(itemDestinationIndex, 0, deletedItem);
+
+    const newStores = [...stores];
+
+    newStores[storeSourceIndex] = { ...stores[storeSourceIndex], items: newSourceItems };
+    newStores[storeDestinationIndex] = { ...stores[storeDestinationIndex], items: newDestinationItems };
+
+    setStores(newStores);
   };
 
   return (
