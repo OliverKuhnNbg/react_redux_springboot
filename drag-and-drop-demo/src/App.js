@@ -70,7 +70,7 @@ function App() {
                         {(provided) => (
                           <div className='store-container' 
                             {...provided.dragHandleProps} 
-                            {...provided.draggableProps} 
+                            {...provided.draggableProps}
                             ref={provided.innerRef}>
                             <StorePanel {...store} />
                           </div>
