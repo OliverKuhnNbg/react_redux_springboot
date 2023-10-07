@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { DATA } from './util';
 import logo from './logo.svg';
 import './App.css';
@@ -65,8 +65,19 @@ function App() {
   const handleDrag = ( ) => {
     console.log('drag start _ 1')
   }
-  const handleDragTwo = ( ) => {
-    console.log('drag start _ 2')
+
+  const dragNode = useRef();
+  const handleDragStart = (e) => {
+    console.log('yeahh!!! dragging starts....');
+    dragNode.current = e.target;
+    dragNode.current.addEventListener('dragend', handleDragEnd);
+    
+  }
+  const handleDragEnd = () => {
+    console.log('yeahh!!! dragging ends...');
+    
+    dragNode.current.removeEventListener('dragend', handleDragEnd);
+    dragNode.current = null;
   }
 
   return (
@@ -111,7 +122,7 @@ function App() {
           {rampTestList.map((ramp, index) => 
             <div className='col text-center mb-5 ramp-wrapper' key={ramp.ramp}>
               {ramp.events.map((event, index) => (
-                <div draggable onDragStart={handleDrag} key={event} className='event-wrapper text-light py-4'>{event}</div>
+                <div draggable onDragStart={(e) => ( handleDragStart(e) )} key={event} className='event-wrapper text-light py-4'>{event}</div>
               ))}
             </div>
           )}
@@ -120,7 +131,7 @@ function App() {
         {/* test draggable 2 */}
         <div className='row'>
             <div className='col text-center mb-5 ramp-wrapper' >
-                <div draggable onDragStart={handleDragTwo} className='event-wrapper text-light py-4'>{'TZest'}</div>
+                <div draggable onDragStart={handleDragStart} className='event-wrapper text-light py-4'>{'TZest'}</div>
             </div>
         </div>    
       </div>
