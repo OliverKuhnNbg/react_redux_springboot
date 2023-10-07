@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { DATA } from './util';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { StorePanel } from './components/StorePanel';
 
@@ -55,7 +56,21 @@ function App() {
     setStores(newStores);
   };
 
+  const rampTestList = [
+    {ramp:'Heck' , events: [1, 2, 3]},
+    {ramp:'Seite' , events: [1, 2]},
+    {ramp:'Ware' , events: [1, 5]}
+  ]
+
+  const handleDrag = ( ) => {
+    console.log('drag start _ 1')
+  }
+  const handleDragTwo = ( ) => {
+    console.log('drag start _ 2')
+  }
+
   return (
+      <>
       <div className='layout__wrapper'>
           <div className='card'>
             <DragDropContext onDragEnd={handleDragDrop}>
@@ -83,6 +98,33 @@ function App() {
             </DragDropContext>
           </div>
       </div>
+      {/* test draggable 1 */}
+      <div className='container-fluid bg-white'>
+        <div className='row'>
+          {rampTestList.map((ramp, index) => 
+            <div className='col text-center fw-bolder' key={ramp.ramp}>
+              {ramp.ramp}
+            </div>
+          )}
+        </div>
+        <div className='row'>
+          {rampTestList.map((ramp, index) => 
+            <div className='col text-center mb-5 ramp-wrapper' key={ramp.ramp}>
+              {ramp.events.map((event, index) => (
+                <div draggable onDragStart={handleDrag} key={event} className='event-wrapper text-light py-4'>{event}</div>
+              ))}
+            </div>
+          )}
+        </div>   
+
+        {/* test draggable 2 */}
+        <div className='row'>
+            <div className='col text-center mb-5 ramp-wrapper' >
+                <div draggable onDragStart={handleDragTwo} className='event-wrapper text-light py-4'>{'TZest'}</div>
+            </div>
+        </div>    
+      </div>
+      </>
   );
 }
 

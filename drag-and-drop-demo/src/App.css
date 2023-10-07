@@ -18,6 +18,20 @@ body {
   margin: 0;
   min-height: 100vh;
 }
+.ramp-wrapper{
+  margin-left: 1px;
+  margin-right: 1px;
+}
+.event-wrapper{
+  background-color: rgb(28, 28, 28);
+  border: 10px;
+  margin-bottom: 2px;
+}
+
+.row .col{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
 
 .layout__wrapper {
   background-image: linear-gradient(0deg, hsl(215, 14%, 16%) 0%, hsl(215, 19%, 29%) 100%);
