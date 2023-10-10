@@ -80,6 +80,24 @@ function App() {
     dragNode.current = null;
   }
 
+  function allowDrop(ev) {
+      ev.preventDefault();
+  }
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    console.info("Drag started.");
+  }
+
+  function dragEnd(ev) {
+      console.info("Drag ended, " + ev);
+  }
+
+  function drop(ev) {
+      ev.preventDefault();
+      const data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+  }
+
   return (
       <>
       <div className='layout__wrapper'>
@@ -131,9 +149,26 @@ function App() {
         {/* test draggable 2 */}
         <div className='row'>
             <div className='col text-center mb-5 ramp-wrapper' >
-                <div draggable onDragStart={handleDragStart} className='event-wrapper text-light py-4'>{'TZest'}</div>
+                <div draggable onDragStart={(e) => ( handleDragStart(e) )} className='event-wrapper text-light py-4'>{'TZest'}</div>
             </div>
-        </div>    
+        </div>   
+        {/* test draggable 3 */}
+        <div className='row'>
+          <div id={'name'}>
+              <div id="div1" onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}>
+                  <img
+                      src="https://www.w3schools.com/html/img_w3slogo.gif"
+                      draggable="true"
+                      onDragStart={(e) => drag(e)}
+                      onDragEnd={(e) => dragEnd(e)}
+                      id="drag1"
+                      width="88"
+                      height="31"
+                  />
+              </div>
+              <div id="div2" onDrop={(e) => drop(e)} onDragOver={(e) => allowDrop(e)}></div>
+          </div>
+        </div>  
       </div>
       </>
   );
